@@ -42,10 +42,16 @@ def test_calculator_history_static_property():
     assert calc1.count_history() == 6
 
 
-def test_calculator_history_get_addition_calculation():
-    """Testing getting the result from history"""
+def test_calculator_get_first_element_in_history():
+    """Testing getting the first result from history"""
     calculation = Calculator.history[0]
     assert calculation.get_result() == 6
+
+
+def test_calculator_get_last_element_in_history():
+    """Testing getting the last result from history"""
+    calculation = Calculator.history[Calculator.count_history()-1]
+    assert calculation.get_result() == 3
 
 
 def test_calculator_clear_history():
