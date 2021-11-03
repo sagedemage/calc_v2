@@ -59,8 +59,21 @@ class Calculator:
     def clear_history():
         """Clear history"""
         Calculator.history.clear()
+        return True
 
     @staticmethod
     def delete_history(index):
         """Delete item from history"""
         Calculator.history.pop(index)
+
+    @staticmethod
+    def get_result_of_first_calculation_added_to_history():
+        """Get first result from history"""
+        result = Calculator.history[0].get_result()
+        return result
+
+    @staticmethod
+    def get_result_of_last_calculation_added_to_history():
+        """Get last result from history"""
+        result = Calculator.history[-1].get_result()
+        return result

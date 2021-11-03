@@ -44,14 +44,14 @@ def test_calculator_history_static_property():
 
 def test_calculator_get_first_element_in_history():
     """Testing getting the first result from history"""
-    calculation = Calculator.history[0]
-    assert calculation.get_result() == 6
+    calculation = Calculator.get_result_of_first_calculation_added_to_history()
+    assert calculation == 6
 
 
 def test_calculator_get_last_element_in_history():
     """Testing getting the last result from history"""
-    calculation = Calculator.history[Calculator.count_history()-1]
-    assert calculation.get_result() == 3
+    calculation = Calculator.get_result_of_last_calculation_added_to_history()
+    assert calculation == 3
 
 
 def test_calculator_clear_history():
