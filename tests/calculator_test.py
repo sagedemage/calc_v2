@@ -12,45 +12,53 @@ def test_calculator():
 def test_calculator_add():
     """Testing addition method"""
     calc1 = Calculator()
+    assert calc1.add_number(2, 3) == 5
     assert calc1.add_number(2, 2, 2) == 6
 
 
 def test_calculator_subtract():
     """Testing subtract method"""
-    assert Calculator.subtract_number(10, 2, 2) == 6
+    calc1 = Calculator
+    assert calc1.subtract_number(10, 5) == 5
+    assert calc1.subtract_number(10, 2, 2) == 6
 
 
 def test_calculator_multiply():
     """Testing the multiplication method"""
-    assert Calculator.multiply_number(2, 2, 2) == 8
+    calc1 = Calculator()
+    assert calc1.multiply_number(3, 2) == 6
+    assert calc1.multiply_number(2, 2, 2) == 8
 
 
 def test_calculator_divide():
     """Testing division method"""
-    assert Calculator.divide_number(8, 2, 2) == 2
+    calc1 = Calculator()
+    assert calc1.divide_number(4, 2) == 2
+    assert calc1.divide_number(8, 2, 2) == 2
 
 
 def test_calculator_divide_by_zero():
     """Testing division by zero"""
     assert Calculator.divide_number(2, 0) == 0
+    assert Calculator.divide_number(5, 0, 0) == 0
 
 
 def test_calculator_history_static_property():
     """Testing number of calculations in history"""
     calc1 = Calculator()
     calc1.add_number(1, 2)
-    assert calc1.count_history() == 6
+    assert calc1.count_history() == 11
 
 
 def test_calculator_get_first_element_in_history():
     """Testing getting the first result from history"""
-    calculation = Calculator.get_result_of_first_calculation_added_to_history()
-    assert calculation == 6
+    calculation = Calculator.get_result_of_first_calculation_in_history()
+    assert calculation == 5
 
 
 def test_calculator_get_last_element_in_history():
     """Testing getting the last result from history"""
-    calculation = Calculator.get_result_of_last_calculation_added_to_history()
+    calculation = Calculator.get_result_of_last_calculation_in_history()
     assert calculation == 3
 
 
@@ -64,9 +72,9 @@ def test_calculator_clear_history():
 def test_calculator_delete_history():
     """Testing deleting an item in history"""
     calc1 = Calculator()
-    # I: 0 V:2
+    # Index: 0 Value:2
     calc1.add_number(1, 1)
-    # I: 1 V:4
+    # Index: 1 Value:4
     calc1.subtract_number(6, 2)
 
     calc1.delete_history(0)

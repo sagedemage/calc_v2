@@ -12,41 +12,42 @@ class Calculator:
     @staticmethod
     def add_number(value1, *values):
         """Add numbers"""
-        value = value1
+        result = value1
         for val in values:
-            addition = Addition(value, val)
-            value = addition.get_result()
-        Calculator.history.append(addition)
+            addition = Addition.create(result, val)
+            result = addition.get_result()
+        Calculator.add_history(addition)
         return addition.get_result()
 
     @staticmethod
     def subtract_number(value1, *values):
         """Subtract numbers"""
-        value = value1
+        result = value1
         for val in values:
-            subtraction = Subtraction(value, val)
-            value = subtraction.get_result()
-        Calculator.history.append(subtraction)
+            subtraction = Subtraction(result, val)
+            subtraction.create(result, val)
+            result = subtraction.get_result()
+        Calculator.add_history(subtraction)
         return subtraction.get_result()
 
     @staticmethod
     def multiply_number(value1, *values):
         """Multiply numbers"""
-        value = value1
+        result = value1
         for val in values:
-            multiplication = Multiplication(value, val)
-            value = multiplication.get_result()
-        Calculator.history.append(multiplication)
+            multiplication = Multiplication.create(result, val)
+            result = multiplication.get_result()
+        Calculator.add_history(multiplication)
         return multiplication.get_result()
 
     @staticmethod
     def divide_number(value1, *values):
         """Divide numbers"""
-        value = value1
+        result = value1
         for val in values:
-            division = Division(value, val)
-            value = division.get_result()
-        Calculator.history.append(division)
+            division = Division.create(result, val)
+            result = division.get_result()
+        Calculator.add_history(division)
         return division.get_result()
 
     @staticmethod
@@ -67,13 +68,18 @@ class Calculator:
         Calculator.history.pop(index)
 
     @staticmethod
-    def get_result_of_first_calculation_added_to_history():
+    def add_history(class_object):
+        """Add object to history"""
+        Calculator.history.append(class_object)
+
+    @staticmethod
+    def get_result_of_first_calculation_in_history():
         """Get first result from history"""
         result = Calculator.history[0].get_result()
         return result
 
     @staticmethod
-    def get_result_of_last_calculation_added_to_history():
+    def get_result_of_last_calculation_in_history():
         """Get last result from history"""
         result = Calculator.history[-1].get_result()
         return result
