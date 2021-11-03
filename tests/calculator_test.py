@@ -12,22 +12,22 @@ def test_calculator():
 def test_calculator_add():
     """Testing addition method"""
     calc1 = Calculator()
-    assert calc1.add_number(2, 2) == 4
+    assert calc1.add_number(2, 2, 2) == 6
 
 
 def test_calculator_subtract():
     """Testing subtract method"""
-    assert Calculator.subtract_number(2, 1) == 1
+    assert Calculator.subtract_number(10, 2, 2) == 6
 
 
 def test_calculator_multiply():
     """Testing the multiplication method"""
-    assert Calculator.multiply_number(1, 2) == 2
+    assert Calculator.multiply_number(2, 2, 2) == 8
 
 
 def test_calculator_divide():
     """Testing division method"""
-    assert Calculator.divide_number(2, 2) == 1
+    assert Calculator.divide_number(8, 2, 2) == 2
 
 
 def test_calculator_divide_by_zero():
@@ -45,7 +45,7 @@ def test_calculator_history_static_property():
 def test_calculator_history_get_addition_calculation():
     """Testing getting the result from history"""
     calculation = Calculator.history[0]
-    assert calculation.get_result() == 4
+    assert calculation.get_result() == 6
 
 
 def test_calculator_clear_history():

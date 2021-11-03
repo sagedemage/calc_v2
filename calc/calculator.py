@@ -10,30 +10,42 @@ class Calculator:
     history = []
 
     @staticmethod
-    def add_number(value_a, value_b):
-        """adds two numbers"""
-        addition = Addition(value_a, value_b)
+    def add_number(value1, *values):
+        """Add numbers"""
+        value = value1
+        for val in values:
+            addition = Addition(value, val)
+            value = addition.get_result()
         Calculator.history.append(addition)
         return addition.get_result()
 
     @staticmethod
-    def subtract_number(value_a, value_b):
-        """Subtract a Number"""
-        subtraction = Subtraction(value_a, value_b)
+    def subtract_number(value1, *values):
+        """Subtract numbers"""
+        value = value1
+        for val in values:
+            subtraction = Subtraction(value, val)
+            value = subtraction.get_result()
         Calculator.history.append(subtraction)
         return subtraction.get_result()
 
     @staticmethod
-    def multiply_number(value_a, value_b):
-        """Multiply a Number"""
-        multiplication = Multiplication(value_a, value_b)
+    def multiply_number(value1, *values):
+        """Multiply numbers"""
+        value = value1
+        for val in values:
+            multiplication = Multiplication(value, val)
+            value = multiplication.get_result()
         Calculator.history.append(multiplication)
         return multiplication.get_result()
 
     @staticmethod
-    def divide_number(value_a, value_b):
-        """Divide a Number"""
-        division = Division(value_a, value_b)
+    def divide_number(value1, *values):
+        """Divide numbers"""
+        value = value1
+        for val in values:
+            division = Division(value, val)
+            value = division.get_result()
         Calculator.history.append(division)
         return division.get_result()
 
