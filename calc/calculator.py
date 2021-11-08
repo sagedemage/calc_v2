@@ -11,7 +11,7 @@ class Calculator:
 
     @staticmethod
     def add_number(value1, *values):
-        """Add numbers"""
+        """Add numbers by infinite amount of times"""
         result = value1
         for val in values:
             addition = Addition.create(result, val)
@@ -21,18 +21,17 @@ class Calculator:
 
     @staticmethod
     def subtract_number(value1, *values):
-        """Subtract numbers"""
+        """Subtract numbers by infinite amount of times"""
         result = value1
         for val in values:
-            subtraction = Subtraction(result, val)
-            subtraction.create(result, val)
+            subtraction = Subtraction.create(result, val)
             result = subtraction.get_result()
         Calculator.add_history(subtraction)
         return subtraction.get_result()
 
     @staticmethod
     def multiply_number(value1, *values):
-        """Multiply numbers"""
+        """Multiply numbers by infinite amount of times"""
         result = value1
         for val in values:
             multiplication = Multiplication.create(result, val)
@@ -42,7 +41,7 @@ class Calculator:
 
     @staticmethod
     def divide_number(value1, *values):
-        """Divide numbers"""
+        """Divide numbers by infinite amount of times"""
         result = value1
         for val in values:
             division = Division.create(result, val)
@@ -66,20 +65,20 @@ class Calculator:
     def delete_history(index):
         """Delete item from history"""
         Calculator.history.pop(index)
+        return True
 
     @staticmethod
     def add_history(class_object):
         """Add object to history"""
         Calculator.history.append(class_object)
+        return True
 
     @staticmethod
     def get_result_of_first_calculation_in_history():
         """Get first result from history"""
-        result = Calculator.history[0].get_result()
-        return result
+        return Calculator.history[0].get_result()
 
     @staticmethod
     def get_result_of_last_calculation_in_history():
         """Get last result from history"""
-        result = Calculator.history[-1].get_result()
-        return result
+        return Calculator.history[-1].get_result()

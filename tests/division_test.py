@@ -4,8 +4,12 @@ from calc.calculations.division import Division
 
 
 def test_division():
-    """Testing addition method"""
+    """Testing division method"""
     division1 = Division(4, 2)
-    division2 = Division(2, 0)
     assert division1.get_result() == 2
-    assert division2.get_result() == 0
+
+
+def test_division_by_zero():
+    """Testing division by zero"""
+    division = Division(2, 0)
+    assert division.get_result() == 0

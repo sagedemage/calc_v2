@@ -11,5 +11,4 @@ class Addition(Calculation):
 
     def get_result(self):
         """Add two numbers"""
-        result = self.value_a + self.value_b
-        return result
+        return self.value_a + self.value_b

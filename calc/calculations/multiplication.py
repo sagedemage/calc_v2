@@ -10,5 +10,4 @@ class Multiplication(Calculation):
 
     def get_result(self):
         """Multiply two numbers"""
-        result = self.value_a * self.value_b
-        return result
+        return self.value_a * self.value_b
