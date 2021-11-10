@@ -50,11 +50,17 @@ def test_calculator_divide_more_than_two_values():
 
 def test_calculator_divide_by_zero():
     """Testing division by zero"""
+    # The program throws ZeroDivisionError
+    # Result being 0 means the result value did not change
+    # It does not mean the answer is actually equal to 0
     assert Calculator.divide_number(2, 0) == 0
 
 
 def test_calculator_divide_by_zero_more_than_once():
     """Testing division method with more than two values"""
+    # The program throws ZeroDivisionError
+    # Result being 0 means the result value did not change
+    # It does not mean the answer is actually equal to 0
     assert Calculator.divide_number(5, 0, 0) == 0
 
 
