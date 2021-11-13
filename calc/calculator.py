@@ -10,42 +10,30 @@ class Calculator:
     history = []
 
     @staticmethod
-    def add_number(value1, *values):
+    def add_number(value, values: tuple):
         """Add numbers by infinite amount of times"""
-        result = value1
-        for val in values:
-            addition = Addition.create(result, val)
-            result = addition.get_result()
+        addition = Addition.create(value, values)
         Calculator.add_history(addition)
         return addition.get_result()
 
     @staticmethod
-    def subtract_number(value1, *values):
+    def subtract_number(value, values: tuple):
         """Subtract numbers by infinite amount of times"""
-        result = value1
-        for val in values:
-            subtraction = Subtraction.create(result, val)
-            result = subtraction.get_result()
+        subtraction = Subtraction.create(value, values)
         Calculator.add_history(subtraction)
         return subtraction.get_result()
 
     @staticmethod
-    def multiply_number(value1, *values):
+    def multiply_number(value, values: tuple):
         """Multiply numbers by infinite amount of times"""
-        result = value1
-        for val in values:
-            multiplication = Multiplication.create(result, val)
-            result = multiplication.get_result()
+        multiplication = Multiplication.create(value, values)
         Calculator.add_history(multiplication)
         return multiplication.get_result()
 
     @staticmethod
-    def divide_number(value1, *values):
+    def divide_number(value, values: tuple):
         """Divide numbers by infinite amount of times"""
-        result = value1
-        for val in values:
-            division = Division.create(result, val)
-            result = division.get_result()
+        division = Division.create(value, values)
         Calculator.add_history(division)
         return division.get_result()
 

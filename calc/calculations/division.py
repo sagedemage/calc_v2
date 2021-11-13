@@ -9,11 +9,11 @@ class Division(Calculation):
     # the calculation parent class"""
 
     def get_result(self):
-        """Divide two numbers"""
-        result = 0
+        """Divide numbers"""
+        result = self.value_a
         try:
-            result = self.value_a / self.value_b
-        except ZeroDivisionError as message:
-            mes = message
-            print(mes)
+            for value in self.values:
+                result = result / value
+        except ZeroDivisionError:
+            result = None
         return result

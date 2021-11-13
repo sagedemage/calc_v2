@@ -9,5 +9,8 @@ class Multiplication(Calculation):
     # the calculation parent class
 
     def get_result(self):
-        """Multiply two numbers"""
-        return self.value_a * self.value_b
+        """Multiply numbers"""
+        result = self.value_a
+        for value in self.values:
+            result = result * value
+        return result

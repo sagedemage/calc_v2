@@ -10,5 +10,8 @@ class Addition(Calculation):
     # the calculation parent class
 
     def get_result(self):
-        """Add two numbers"""
-        return self.value_a + self.value_b
+        """Add numbers"""
+        result = self.value_a
+        for value in self.values:
+            result = result + value
+        return result

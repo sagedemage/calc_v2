@@ -10,4 +10,7 @@ class Subtraction(Calculation):
 
     def get_result(self):
         """Subtract two numbers"""
-        return self.value_a - self.value_b
+        result = self.value_a
+        for value in self.values:
+            result = result - value
+        return result
