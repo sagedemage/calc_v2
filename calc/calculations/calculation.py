@@ -11,10 +11,11 @@ class Calculation:
 
     @staticmethod
     def number_list(values):
-        """Put numbers in list"""
+        """change the values to a float"""
+        # lists can be modified and tuples are faster
         list_number = []
         for value in values:
-            list_number.append(value)
+            list_number.append(float(value))
         return tuple(list_number)
 
     # Class Factory Method <- bound to the class and

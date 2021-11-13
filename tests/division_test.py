@@ -5,7 +5,9 @@ from calc.calculations.division import Division
 
 def test_division():
     """Testing division method"""
+    # Arrange
     division = Division(4, (2,))
+    # Act and Assert
     assert division.get_result() == 2
 
 

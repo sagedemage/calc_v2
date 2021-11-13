@@ -11,62 +11,62 @@ class Calculator:
 
     @staticmethod
     def add_number(value, values: tuple):
-        """Add numbers by infinite amount of times"""
+        """Add as many times to the first number"""
         addition = Addition.create(value, values)
         Calculator.add_history(addition)
         return addition.get_result()
 
     @staticmethod
     def subtract_number(value, values: tuple):
-        """Subtract numbers by infinite amount of times"""
+        """Subtract as many times to the first number"""
         subtraction = Subtraction.create(value, values)
         Calculator.add_history(subtraction)
         return subtraction.get_result()
 
     @staticmethod
     def multiply_number(value, values: tuple):
-        """Multiply numbers by infinite amount of times"""
+        """Multiply as many times to the first number"""
         multiplication = Multiplication.create(value, values)
         Calculator.add_history(multiplication)
         return multiplication.get_result()
 
     @staticmethod
     def divide_number(value, values: tuple):
-        """Divide numbers by infinite amount of times"""
+        """Divide as many times to the first number"""
         division = Division.create(value, values)
         Calculator.add_history(division)
         return division.get_result()
 
     @staticmethod
     def count_history():
-        """Counting the number of items in history"""
+        """Counting the number of items in the history"""
         count = len(Calculator.history)
         return count
 
     @staticmethod
     def clear_history():
-        """Clear history"""
+        """Clear the history"""
         Calculator.history.clear()
         return True
 
     @staticmethod
     def delete_history(index):
-        """Delete item from history"""
+        """Delete an item from the history"""
         Calculator.history.pop(index)
         return True
 
     @staticmethod
     def add_history(class_object):
-        """Add object to history"""
+        """Add an object to the history"""
         Calculator.history.append(class_object)
         return True
 
     @staticmethod
     def get_result_of_first_calculation_in_history():
-        """Get first result from history"""
+        """Get the first result from the history"""
         return Calculator.history[0].get_result()
 
     @staticmethod
     def get_result_of_last_calculation_in_history():
-        """Get last result from history"""
+        """Get the last result from the history"""
         return Calculator.history[-1].get_result()

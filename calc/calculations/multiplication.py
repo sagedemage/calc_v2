@@ -5,11 +5,10 @@ from calc.calculations.calculation import Calculation
 
 class Multiplication(Calculation):
     """The Multiplication class """
-    # It has one method to get the result of the the calculation A and B come from
-    # the calculation parent class
+    # This class has a get method that calculates the result of multiplication.
 
     def get_result(self):
-        """Multiply numbers"""
+        """Get result of multiplication"""
         result = self.value_a
         for value in self.values:
             result = result * value

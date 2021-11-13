@@ -5,11 +5,10 @@ from calc.calculations.calculation import Calculation
 
 class Division(Calculation):
     """The Division class """
-    # It has one method to get the result of the the calculation A and B come from
-    # the calculation parent class"""
+    # This class has a get method that calculates the result of division.
 
     def get_result(self):
-        """Divide numbers"""
+        """Get result of division"""
         result = self.value_a
         try:
             for value in self.values:

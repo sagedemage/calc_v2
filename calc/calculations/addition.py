@@ -6,11 +6,10 @@ from calc.calculations.calculation import Calculation
 # This is how you extend the Addition class with Calculation
 class Addition(Calculation):
     """The Addition class """
-    # It has one method to get the result of the the calculation A and B come from
-    # the calculation parent class
+    # This class has a get method that calculates the result of addition.
 
     def get_result(self):
-        """Add numbers"""
+        """Get result of addition"""
         result = self.value_a
         for value in self.values:
             result = result + value
