@@ -4,7 +4,7 @@ from tests import read_csv
 from calc.calculations.multiplication import Multiplication
 
 
-def test_multiplication():
+def test_multiplication_two_values():
     """Testing multiplication method for two values"""
     path = "tests/test_data/multiplication/multiplication_2_values.csv"
     # read_two_columns function

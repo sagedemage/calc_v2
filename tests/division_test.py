@@ -4,7 +4,7 @@ from tests import read_csv
 from calc.calculations.division import Division
 
 
-def test_division():
+def test_division_two_values():
     """Testing division method for two values"""
     path = "tests/test_data/division/division_2_values.csv"
     # read_two_columns function

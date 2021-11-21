@@ -4,7 +4,7 @@ from tests import read_csv
 from calc.calculations.addition import Addition
 
 
-def test_addition():
+def test_addition_two_values():
     """Testing addition method for two values"""
     path = "tests/test_data/addition/addition_2_values.csv"
     # read_two_columns function

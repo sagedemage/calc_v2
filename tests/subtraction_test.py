@@ -4,7 +4,7 @@ from tests import read_csv
 from calc.calculations.subtraction import Subtraction
 
 
-def test_subtraction():
+def test_subtraction_two_values():
     """Testing subtraction method for two values"""
     path = "tests/test_data/subtraction/subtraction_2_values.csv"
     # read_two_columns function
