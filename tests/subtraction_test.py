@@ -1,37 +1,32 @@
 """Testing Subtraction"""
 
-import pandas as pd
+from tests import read_csv
 from calc.calculations.subtraction import Subtraction
 
 
 def test_subtraction():
-    """Testing subtraction method"""
-    # Read in the csv file
-    dataframe = pd.read_csv("tests/test_data/subtraction/subtraction.csv")
-    # Read in columns of the table
-    value1 = dataframe["value_1"]
-    value2 = dataframe["value_2"]
-    result = dataframe["result"]
+    """Testing subtraction method for two values"""
+    path = "tests/test_data/subtraction/subtraction_2_values.csv"
+    # read_two_columns function
+    columns = read_csv.read_two_columns(path)
 
-    for i in range(result.size):
+    for i in range(columns[2].size):
+        # columns: value1, value2 and result
         # Arrange
-        subtraction = Subtraction(value1[i], (value2[i],))
+        subtraction = Subtraction(columns[0][i], (columns[1][i],))
         # Act and Assert
-        assert subtraction.get_result() == result[i]
+        assert subtraction.get_result() == columns[2][i]
 
 
 def test_subtraction_three_values():
     """Testing subtraction method for three values"""
-    # Read in the csv file
-    dataframe = pd.read_csv("tests/test_data/subtraction/subtraction_3_values.csv")
-    # Read in columns of the table
-    value1 = dataframe["value_1"]
-    value2 = dataframe["value_2"]
-    value3 = dataframe["value_3"]
-    result = dataframe["result"]
+    path = "tests/test_data/subtraction/subtraction_3_values.csv"
+    # read_three_columns function
+    columns = read_csv.read_three_columns(path)
 
-    for i in range(result.size):
+    for i in range(columns[3].size):
+        # columns: value1, value2, value3 and result
         # Arrange
-        subtraction = Subtraction(value1[i], (value2[i], value3[i]))
-        # ACt and Assert
-        assert subtraction.get_result() == result[i]
+        subtraction = Subtraction(columns[0][i], (columns[1][i], columns[2][i]))
+        # Act and Assert
+        assert subtraction.get_result() == columns[3][i]
