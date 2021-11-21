@@ -1,6 +1,5 @@
 """Import the calculator class"""
 import pytest
-
 from calc.calculator import Calculator
 
 
@@ -15,27 +14,47 @@ def test_calculator_add(fixture_clear_history):
     """Testing addition method"""
     # pylint: disable=unused-argument, redefined-outer-name
     # Adding two numbers
-    assert Calculator.add_number(2, (3,)) == 5
+    assert Calculator.add_number(1, (2,)) == 3
+
+
+def test_calculator_add_three_values(fixture_clear_history):
+    """Testing addition method with three values"""
+    # pylint: disable=unused-argument, redefined-outer-name
+
     # Adding more than two numbers
-    assert Calculator.add_number(2, (2, 2)) == 6
+    assert Calculator.add_number(2, (4, 6)) == 12
 
 
 def test_calculator_subtract(fixture_clear_history):
     """Testing subtraction method"""
     # pylint: disable=unused-argument, redefined-outer-name
+
     # Subtracting two numbers
-    assert Calculator.subtract_number(10, (5,)) == 5
-    # Subtracting more than two numbers
-    assert Calculator.subtract_number(10, (2, 2)) == 6
+    assert Calculator.subtract_number(8, (2,)) == 6
+
+
+def test_calculator_subtract_three_values(fixture_clear_history):
+    """Testing subtraction method for three values"""
+    # pylint: disable=unused-argument, redefined-outer-name
+
+    # Subtracting three values
+    assert Calculator.subtract_number(16, (4, 2)) == 10
 
 
 def test_calculator_multiply(fixture_clear_history):
     """Testing the multiplication method"""
     # pylint: disable=unused-argument, redefined-outer-name
+
     # Multiplying two numbers
     assert Calculator.multiply_number(3, (2,)) == 6
-    # Multiplying more than two numbers
-    assert Calculator.multiply_number(2, (2, 2)) == 8
+
+
+def test_calculator_multiply_three_value(fixture_clear_history):
+    """Testing multiplication method with three values"""
+    # pylint: disable=unused-argument, redefined-outer-name
+
+    # Multiplying three values
+    assert Calculator.multiply_number(2, (3, 5)) == 30
 
 
 def test_calculator_divide(fixture_clear_history):
@@ -43,16 +62,23 @@ def test_calculator_divide(fixture_clear_history):
     # pylint: disable=unused-argument, redefined-outer-name
     # Dividing two numbers
     assert Calculator.divide_number(4, (2,)) == 2
-    # Dividing more than two numbers
-    assert Calculator.divide_number(8, (2, 2)) == 2
+
+
+def test_calculator_divide_three_value(fixture_clear_history):
+    """Testing division method by three values"""
+    # pylint: disable=unused-argument, redefined-outer-name
+
+    # Dividing three values
+    assert Calculator.divide_number(50, (5, 2)) == 5
 
 
 def test_calculator_divide_by_zero(fixture_clear_history):
     """Testing division by zero"""
     # pylint: disable=unused-argument, redefined-outer-name
-    # Dividing two numbers
-    assert Calculator.divide_number(2, (0,)) is None
-    # Dividing more than two numbers
+    # Read in the csv file
+
+    # Dividing by zero
+    assert Calculator.divide_number(5, (0,)) is None
     assert Calculator.divide_number(5, (0, 0)) is None
 
 

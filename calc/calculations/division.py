@@ -12,7 +12,8 @@ class Division(Calculation):
         result = self.value_a
         try:
             for value in self.values:
-                result = result / value
+                # Value needs to be a float to avoid weird rounding issues
+                result = round(result / value, 6)
         except ZeroDivisionError:
             result = None
         return result

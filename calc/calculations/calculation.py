@@ -6,7 +6,7 @@ class Calculation:
     # Default Constructor
     def __init__(self, value_a, values: tuple):
         """Initialize the values"""
-        self.value_a = value_a
+        self.value_a = float(value_a)
         self.values = Calculation.number_list(values)
 
     @staticmethod
