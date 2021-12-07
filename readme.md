@@ -1,5 +1,4 @@
 # Calculator Project
-[![Build Status](https://app.travis-ci.com/sagedemage/calc_v2.svg?branch=main)](https://app.travis-ci.com/github/sagedemage/calc_v2)
 
 **This is version 2 of the calculator program.**
 
