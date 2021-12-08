@@ -20,8 +20,15 @@ def form():
         value1 = request.form['value1']
         value2 = request.form['value2']
         operation = request.form['operation']
+
+        if value1 == "" or value2 == "":
+            flash("Input Empty Error!", "error")
+            return render_template('result.html', value1=value1,
+                                   value2=value2, operation=operation, result="")
+
         getattr(Calculator, operation)(value1, (value2,))
         result = ""
+
         if Calculator.get_last_calculation() is None:
             flash("Division by Zero Error!", "error")
             result = "None"

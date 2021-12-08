@@ -1,9 +1,12 @@
 """ contents of calculations.py """
 
+import pandas as pd
+
 
 class Calculations:
     """Calculator class"""
     history = []
+    d = {'value1': [], 'value2': [], 'result': []}
 
     @staticmethod
     def count_history():
@@ -27,6 +30,19 @@ class Calculations:
     def add_history(class_object):
         """Add an object to the history"""
         Calculations.history.append(class_object)
+        value1 = class_object.get_value1()
+        values = class_object.get_values()
+        result = class_object.get_result()
+        Calculations.d['value1'].append(value1)
+        for value in values:
+            Calculations.d['value2'].append(value)
+        Calculations.d['result'].append(result)
+        return True
+
+    @staticmethod
+    def write_in_csv_file():
+        Calculations.df = pd.DataFrame(Calculations.d)
+        Calculations.df.to_csv("output.csv", index=False)
         return True
 
     @staticmethod

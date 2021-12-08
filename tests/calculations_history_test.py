@@ -20,6 +20,7 @@ def test_calculations_history_static_property(fixture_clear_history):
     subtraction = Subtraction(2, (1, ))
     Calculations.add_history(addition)
     Calculations.add_history(subtraction)
+    Calculations.write_in_csv_file()
     assert Calculations.count_history() == 2
 
 
@@ -31,6 +32,7 @@ def test_calculations_get_first_element_in_history(fixture_clear_history):
     subtraction = Subtraction(2, (1,))
     Calculations.add_history(addition)
     Calculations.add_history(subtraction)
+    Calculations.write_in_csv_file()
     assert Calculations.get_first_calculation() == 2
 
 
@@ -42,6 +44,7 @@ def test_calculator_get_last_element_in_history(fixture_clear_history):
     subtraction = Subtraction(2, (1,))
     Calculations.add_history(addition)
     Calculations.add_history(subtraction)
+    Calculations.write_in_csv_file()
     assert Calculations.get_last_calculation() == 1
 
 
@@ -54,7 +57,7 @@ def test_calculator_delete_history(fixture_clear_history):
     Calculations.add_history(addition)
     Calculations.add_history(subtraction)
     Calculations.delete_history(0)
-    # Checking that the element index went from index 1 to index 0
+    Calculations.write_in_csv_file()
     assert Calculations.history[0].get_result() == 1
 
 
@@ -67,4 +70,5 @@ def test_calculator_clear_history(fixture_clear_history):
     Calculations.add_history(addition)
     Calculations.add_history(subtraction)
     Calculations.clear_history()
+    Calculations.write_in_csv_file()
     assert True
