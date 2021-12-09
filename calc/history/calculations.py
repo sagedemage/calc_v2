@@ -6,7 +6,7 @@ import pandas as pd
 class Calculations:
     """Calculator class"""
     history = []
-    d = {"operations": [], "value1": [], "value2": [], "result": []}
+    table = {"operations": [], "value1": [], "value2": [], "result": []}
 
     @staticmethod
     def count_history():
@@ -29,22 +29,23 @@ class Calculations:
     @staticmethod
     def put_history_to_csv(operation, value1, value2, result):
         """Write the history to csv file"""
-        Calculations.d["operations"].append(operation)
-        Calculations.d["value1"].append(value1)
-        Calculations.d["value2"].append(value2)
-        Calculations.d["result"].append(result)
-        Calculations.df = pd.DataFrame(Calculations.d)
-        Calculations.df.to_csv("output.csv", index=False)
+        Calculations.table["operations"].append(operation)
+        Calculations.table["value1"].append(value1)
+        Calculations.table["value2"].append(value2)
+        Calculations.table["result"].append(result)
+        Calculations.dataframe = pd.DataFrame(Calculations.table)
+        Calculations.dataframe.to_csv("output.csv", index=False)
         return True
 
     @staticmethod
     def read_csv_file():
+        # pylint: disable=consider-using-enumerate
         """Read the history from csv and put it into the history """
-        df = pd.read_csv('output.csv')
-        operations = df["operations"]
-        value1 = df["value1"]
-        value2 = df["value2"]
-        result = df["result"]
+        dataframe = pd.read_csv('output.csv')
+        operations = dataframe["operations"]
+        value1 = dataframe["value1"]
+        value2 = dataframe["value2"]
+        result = dataframe["result"]
         Calculations.clear_history()
         for i in range(len(result)):
             item = [operations[i], value1[i], value2[i], result[i]]
@@ -53,6 +54,7 @@ class Calculations:
 
     @staticmethod
     def get_history():
+        """Get Calculation history"""
         return Calculations.history
 
     @staticmethod

@@ -85,4 +85,3 @@ def test_read_csv():
 def test_get_history():
     """Test getting history"""
     assert isinstance(Calculations.get_history(), list)
-

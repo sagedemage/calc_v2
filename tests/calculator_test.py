@@ -1,7 +1,5 @@
 """Import the calculator class"""
 from calc.calculator import Calculator
-from calc.calculations.addition import Addition
-from calc.calculations.subtraction import Subtraction
 
 
 def test_calculator_add():

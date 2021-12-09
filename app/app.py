@@ -2,7 +2,6 @@
 from flask import Flask, render_template, request, flash
 from calc.calculator import Calculator
 from calc.history.calculations import Calculations
-import pandas as pd
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
@@ -16,6 +15,7 @@ def homepage():
 
 @app.route('/form', methods=['POST', 'GET'])
 def form():
+    # pylint: disable=no-else-return
     """Display the form"""
     if request.method == 'POST':
         # name of the tag
@@ -61,10 +61,12 @@ def result_message():
 
 @app.route('/history')
 def history_table():
+    """Display the calculation history"""
     Calculations.read_csv_file()
-    op = "operations"
-    v1 = "value1"
-    v2 = "value2"
-    re = "result"
+    operation = "operations"
+    value1 = "value1"
+    value2 = "value2"
+    result = "result"
     items = Calculations.get_history()
-    return render_template('history.html', items=items, op=op, v1=v1, v2=v2, re=re)
+    return render_template('history.html', items=items, operation=operation, value1=value1,
+                           value2=value2, result=result)
