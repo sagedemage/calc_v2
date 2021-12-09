@@ -1,5 +1,7 @@
 """Import the calculator class"""
 from calc.calculator import Calculator
+from calc.calculations.addition import Addition
+from calc.calculations.subtraction import Subtraction
 
 
 def test_calculator_add():
@@ -76,3 +78,19 @@ def test_calculator_divide_by_zero():
 def test_calculator_last_calculation():
     """Testing getting the last calculation in history"""
     assert Calculator.get_last_calculation() is None
+
+
+def test_calculator_read_csv_file():
+    """Testing reading csv file"""
+    assert Calculator.read_csv_file() is True
+
+
+def test_calculator_put_history_to_csv():
+    """Testing putting values in csv file"""
+    assert Calculator.put_history_to_csv("addition", 1, 2, 3) is True
+
+
+def test_put_history_to_csv():
+    """Add items to history"""
+    Calculator.put_history_to_csv("addition", 1, 2, 3)
+    Calculator.put_history_to_csv("subtraction", 4, 2, 2)

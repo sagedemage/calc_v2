@@ -25,8 +25,8 @@ class Calculation:
         """Factory Method"""
         return cls(value_a, values)
 
-    def get_value1(self):
-        return self.value_a
+    # def get_value1(self):
+    # return self.value_a
 
-    def get_values(self):
-        return self.values
+    # def get_values(self):
+    # return self.values

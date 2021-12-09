@@ -124,3 +124,7 @@ h1 {
 .image-scale {
 	width: 25%;
 }
+
+.table {
+	text-align: center;
+}

@@ -1,10 +1,8 @@
-# Calculator Project
+# Beautiful Tables
 
-**This is version 2 of the calculator program.**
+**The web application has a form where the user can do 
+calculations. The app can display a beautiful table containing 
+the history of calculations. The web application uses Flask and Jinja.**
 
-## Pytest using Pylint and Coverage
-To run tests, Lint, and Coverage report use this command:
-pytest  --pylint --cov
-* pylintrc is the config for pylint
-* .coveragerc is the config for coverage 
-* setup.py is a config file for pytest
+## Result
+![](images/beautiful_table.png) 

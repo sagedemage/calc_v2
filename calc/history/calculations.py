@@ -6,7 +6,7 @@ import pandas as pd
 class Calculations:
     """Calculator class"""
     history = []
-    d = {'value1': [], 'value2': [], 'result': []}
+    d = {"operations": [], "value1": [], "value2": [], "result": []}
 
     @staticmethod
     def count_history():
@@ -27,22 +27,38 @@ class Calculations:
         return True
 
     @staticmethod
-    def add_history(class_object):
-        """Add an object to the history"""
-        Calculations.history.append(class_object)
-        value1 = class_object.get_value1()
-        values = class_object.get_values()
-        result = class_object.get_result()
-        Calculations.d['value1'].append(value1)
-        for value in values:
-            Calculations.d['value2'].append(value)
-        Calculations.d['result'].append(result)
+    def put_history_to_csv(operation, value1, value2, result):
+        """Write the history to csv file"""
+        Calculations.d["operations"].append(operation)
+        Calculations.d["value1"].append(value1)
+        Calculations.d["value2"].append(value2)
+        Calculations.d["result"].append(result)
+        Calculations.df = pd.DataFrame(Calculations.d)
+        Calculations.df.to_csv("output.csv", index=False)
         return True
 
     @staticmethod
-    def write_in_csv_file():
-        Calculations.df = pd.DataFrame(Calculations.d)
-        Calculations.df.to_csv("output.csv", index=False)
+    def read_csv_file():
+        """Read the history from csv and put it into the history """
+        df = pd.read_csv('output.csv')
+        operations = df["operations"]
+        value1 = df["value1"]
+        value2 = df["value2"]
+        result = df["result"]
+        Calculations.clear_history()
+        for i in range(len(result)):
+            item = [operations[i], value1[i], value2[i], result[i]]
+            Calculations.history.append(item)
+        return True
+
+    @staticmethod
+    def get_history():
+        return Calculations.history
+
+    @staticmethod
+    def add_history(class_object):
+        """Add an object to the history"""
+        Calculations.history.append(class_object)
         return True
 
     @staticmethod
