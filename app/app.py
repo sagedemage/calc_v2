@@ -18,7 +18,11 @@ def form():
     # pylint: disable=no-else-return
     """Display the form"""
     if request.method == 'POST':
-        # name of the tag
+        if request.form.get('action') == 'Clear':
+            Calculator.clear_csv_files()
+            flash("Table is cleared", "success")
+            return render_template('clear.html')
+        # name of tag
         value1 = request.form['value1']
         value2 = request.form['value2']
         operation = request.form['operation']
@@ -55,13 +59,13 @@ def result_message():
     operation = request.args.get('operation')
     result = request.args.get('result')
     message = operation + " of " + value1 + " " + value2 + " is " + result
-    flash('You were successfully logged in')
     return message
 
 
 @app.route('/history')
 def history_table():
     """Display the calculation history"""
+    # clear = Calculator.clear_csv_files()
     Calculations.read_csv_file()
     operation = "operations"
     value1 = "value1"

@@ -89,6 +89,11 @@ def test_calculator_put_history_to_csv():
 
 
 def test_put_history_to_csv():
-    """Add items to history"""
+    """Testing adding items to history"""
     Calculator.put_history_to_csv("addition", 1, 2, 3)
     Calculator.put_history_to_csv("subtraction", 4, 2, 2)
+
+
+def test_clear_csv_files():
+    """Testing clearing the csv file"""
+    assert Calculator.clear_csv_files() is True

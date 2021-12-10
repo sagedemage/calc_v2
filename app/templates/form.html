@@ -3,7 +3,8 @@
 	{{ super() }}
 {% endblock %}
 {% block content %}
-	<h2> Calculator Form </h2>
+	<p>
+	<h2> Calculator </h2>
 <form method="post">
 	<div class="form-check">
 		<input class="form-check-input" type="radio" name="operation" id="exampleRadios1" value="addition" checked>
@@ -39,4 +40,11 @@
   		</div>
   		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
+	</p>
+<br>
+	<form method="post">
+		<label for="ClearTable">Clear Table</label><br>
+		<input class="btn btn-secondary" type="submit" value="Clear" name="action" id="ClearTable">
+	</form>
+	</p>
 {% endblock %}

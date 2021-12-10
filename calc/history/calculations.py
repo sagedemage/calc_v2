@@ -27,6 +27,17 @@ class Calculations:
         return True
 
     @staticmethod
+    def clear_csv_files():
+        """Clear csv file"""
+        Calculations.table["operations"].clear()
+        Calculations.table["value1"].clear()
+        Calculations.table["value2"].clear()
+        Calculations.table["result"].clear()
+        Calculations.dataframe = pd.DataFrame(Calculations.table)
+        Calculations.dataframe.to_csv("output.csv", index=False)
+        return True
+
+    @staticmethod
     def put_history_to_csv(operation, value1, value2, result):
         """Write the history to csv file"""
         Calculations.table["operations"].append(operation)
