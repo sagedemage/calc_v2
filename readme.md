@@ -1,8 +1,8 @@
-# Beautiful Tables
+# Project 3
 
-**The web application has a form where the user can do 
-calculations. The app can display a beautiful table containing 
-the history of calculations. The web application uses Flask and Jinja.**
+**Project 3 is on the web application that has a form where the user can do 
+calculations. The web application uses Flask and Jinja.**
 
-## Result
-![](images/beautiful_table.png) 
+## Test Result
+![](images/test_result_part_1.png)
+![](images/test_result_part_2.png)

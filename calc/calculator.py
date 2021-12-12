@@ -61,3 +61,8 @@ class Calculator:
         """Clear the csv file"""
         Calculations.clear_csv_files()
         return True
+
+    @staticmethod
+    def get_history():
+        """ Get history of the Calculator """
+        return Calculations.get_history()

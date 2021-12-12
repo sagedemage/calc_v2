@@ -97,3 +97,8 @@ def test_put_history_to_csv():
 def test_clear_csv_files():
     """Testing clearing the csv file"""
     assert Calculator.clear_csv_files() is True
+
+
+def test_get_history():
+    """Test getting history"""
+    assert isinstance(Calculator.get_history(), list)
